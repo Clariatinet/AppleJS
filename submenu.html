@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>submenu</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <!-- 모달창 -->
+    <div class="black-bg">
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="pw" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="submit">
+            전송
+          </button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- nav -->
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <span class="navbar-brand">JSShop</span>
+        <span class="badge bg-dark ms-auto mx-3">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <ul class="list-group" id="test1">
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
+    </ul>
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button class="openModal">로그인</button>
+    </div>
+    <script>
+      document
+        .querySelector('.navbar-toggler')
+        .addEventListener('click', function () {
+          document.querySelectorAll('.list-group')[0].classList.toggle('show');
+        });
+      document
+        .querySelector('.openModal')
+        .addEventListener('click', function () {
+          document.querySelector('.black-bg').classList.add('show-modal');
+        });
+      document.querySelector('#close').addEventListener('click', function () {
+        document.querySelector('.black-bg').classList.remove('show-modal');
+      });
+      document.querySelector('#submit').addEventListener('click', function () {
+        if (
+          document.querySelectorAll('.form-control')[0].value === '' &&
+          document.querySelectorAll('.form-control')[1].value === ''
+        ) {
+          alert('아이디와 비밀번호를 입력하세요.');
+          event.preventDefault();
+        } else if (document.querySelectorAll('.form-control')[1].value.length) {
+          alert('비밀번호를 6자 이상 입력하시오.');
+          event.preventDefault();
+        }
+      });
+      let count = 0;
+      document.querySelector('.badge').addEventListener('click', function () {
+        count++;
+        if (count % 2 === 1) {
+          // badge 클릭횟수가 짝수번 클릭했을 때 내부 글자 Light로 변경
+          document.querySelector('.badge').innerHTML = 'Light 🔄';
+          document.body.classList.add('dark');
+        } else {
+          // badge 클릭횟수가 홀수번 클릭했을 때 내부 글자 Dark로 변경
+          document.querySelector('.badge').innerHTML = 'Dark 🔄';
+          document.body.classList.remove('dark');
+        }
+      });
+
+      let 이름 = 'kim';
+      const 나이 = 30;
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

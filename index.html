@@ -8,16 +8,29 @@
   </head>
   <body>
     <div class="alert-box" id="alert">
-      <p id="text">알림창</p>
-      <button onclick="openAlert('none')">닫기</button>
+      <p id="title">알림창</p>
+      <button id="close">닫기</button>
     </div>
-    <button onclick="openAlert('block' ,'아이디를 입력하세요.')">버튼1</button>
-    <button onclick="openAlert('block','비밀번호를 입력하세요.')">버튼2</button>
+    <button onclick="openId()">버튼1</button>
+    <button onclick="openPassword()">버튼2</button>
     <script>
-      function openAlert(or, sentence) {
-        document.getElementById('alert').style.display = or;
-        document.getElementById('text').innerHTML = sentence;
+      function openId() {
+        document.getElementById('title').innerHTML = '아이디를 입력하세요.';
+        document.getElementById('alert').style.display = 'block';
       }
+
+      function openPassword() {
+        document.getElementById('title').innerHTML = '비밀번호를 입력하세요.';
+        document.getElementById('alert').style.display = 'block';
+      }
+
+      function closeAlert() {
+        document.getElementById('alert').style.display = 'none';
+      }
+
+      document.getElementById('close').addEventListener('click', function () {
+        document.getElementById('alert').style.display = 'none';
+      });
     </script>
   </body>
 </html>
