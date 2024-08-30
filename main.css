@@ -54,3 +54,17 @@ body {
   padding: 100px 20px;
   background-color: lightgray;
 }
+
+.slide-container {
+  display: flex;
+  width: 300vw;
+  transition: all 1s;
+}
+
+.silde-box {
+  width: 100vw;
+}
+
+.silde-box img {
+  width: 100%;
+}

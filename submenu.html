@@ -53,6 +53,23 @@
       <h4>Shirts on Sale</h4>
       <button class="openModal">로그인</button>
     </div>
+    <div class="alert alert-danger">5초 이내 구매시 사은품 증정!</div>
+    <div style="overflow: hidden">
+      <div class="slide-container">
+        <div class="silde-box">
+          <img src="./img/car1.png" alt="" />
+        </div>
+        <div class="silde-box">
+          <img src="./img/car2.png" alt="" />
+        </div>
+        <div class="silde-box">
+          <img src="./img/car3.png" alt="" />
+        </div>
+      </div>
+    </div>
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
     <script>
       document
         .querySelector('.navbar-toggler')
@@ -93,8 +110,47 @@
         }
       });
 
-      let 이름 = 'kim';
-      const 나이 = 30;
+      function countDown() {
+        console.log('123');
+      }
+
+      let value = 5;
+      setTimeout(function () {
+        value--;
+        document.querySelector('.alert').innerHTML =
+          '4초 이내 구매시 사은품 증정!';
+      }, 1000);
+      setTimeout(function () {
+        value--;
+        document.querySelector('.alert').innerHTML =
+          '3초 이내 구매시 사은품 증정!';
+      }, 2000);
+      setTimeout(function () {
+        value--;
+        document.querySelector('.alert').innerHTML =
+          '2초 이내 구매시 사은품 증정!';
+      }, 3000);
+      setTimeout(function () {
+        value--;
+        document.querySelector('.alert').innerHTML =
+          '1초 이내 구매시 사은품 증정!';
+      }, 4000);
+      setTimeout(function () {
+        value--;
+        document.querySelector('.alert').style.display = 'none';
+      }, 5000);
+      document.querySelector('.slide-1').addEventListener('click', function () {
+        document.querySelector('.slide-container').style.transform =
+          'translate(0vw)';
+      });
+      document.querySelector('.slide-2').addEventListener('click', function () {
+        document.querySelector('.slide-container').style.transform =
+          'translate(-100vw)';
+      });
+      document.querySelector('.slide-3').addEventListener('click', function () {
+        document.querySelector('.slide-container').style.transform =
+          'translate(-200vw)';
+      });
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
