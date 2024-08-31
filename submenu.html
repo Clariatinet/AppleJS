@@ -67,10 +67,14 @@
         </div>
       </div>
     </div>
+    <button class="prev">이전</button>
     <button class="slide-1">1</button>
     <button class="slide-2">2</button>
     <button class="slide-3">3</button>
+    <button class="next">다음</button>
     <script>
+      let pictureNumber = 1;
+      let pictureCount = 2;
       document
         .querySelector('.navbar-toggler')
         .addEventListener('click', function () {
@@ -109,11 +113,6 @@
           document.body.classList.remove('dark');
         }
       });
-
-      function countDown() {
-        console.log('123');
-      }
-
       let value = 5;
       setTimeout(function () {
         value--;
@@ -150,6 +149,27 @@
       document.querySelector('.slide-3').addEventListener('click', function () {
         document.querySelector('.slide-container').style.transform =
           'translate(-200vw)';
+      });
+      document.querySelector('.prev').addEventListener('click', function () {
+        if (pictureCount === 2) {
+          document.querySelector('.slide-container').style.transform =
+            'translateX(-100vw)';
+          pictureCount--;
+        } else if (pictureCount === 1) {
+          document.querySelector('.slide-container').style.transform =
+            'translateX(0vw)';
+        }
+      });
+      document.querySelector('.next').addEventListener('click', function () {
+        if (pictureNumber === 1) {
+          document.querySelector('.slide-container').style.transform =
+            'translateX(-100vw)';
+          pictureNumber++;
+        } else if (pictureNumber === 2) {
+          document.querySelector('.slide-container').style.transform =
+            'translateX(-200vw)';
+          pictureNumber += 1;
+        }
       });
     </script>
     <script
