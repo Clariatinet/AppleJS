@@ -53,6 +53,13 @@
       <h4>Shirts on Sale</h4>
       <button class="openModal">로그인</button>
     </div>
+    <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque nisi
+      inventore rerum consectetur est quia nihil. Rerum reiciendis deleniti qui
+      facilis! Temporibus maiores dolorem impedit error expedita dicta obcaecati
+      est.
+    </div>
+    <div style="height: 1000px"></div>
     <div class="alert alert-danger">5초 이내 구매시 사은품 증정!</div>
     <div style="overflow: hidden">
       <div class="slide-container">
@@ -171,6 +178,35 @@
           pictureNumber += 1;
         }
       });
+      // div의 스크롤바 내린 양 + 눈에 보이는 div 높이=== div의 실제 높이
+      document.querySelector('.lorem').addEventListener('scroll', function () {
+        let 스크롤양 = document.querySelector('.lorem').scrollTop;
+        let 실제높이 = document.querySelector('.lorem').scrollHeight;
+        let 높이 = document.querySelector('.lorem').clientHeight;
+        if (스크롤양 + 높이 > 실제높이 - 10) {
+          alert('다 읽음');
+        }
+        스크롤양 + 높이 === 실제높이;
+      });
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 100) {
+          document.querySelector('.navbar-brand').style.fontSize = '20px';
+        } else {
+          document.querySelector('.navbar-brand').style.fontSize = '25px';
+        }
+      });
+      document
+        .querySelector('.black-bg')
+        .addEventListener('click', function (e) {
+          // e.target; // 유저가 실제로 누른거
+          // e.currentTarget; // 이벤트 리스너가 달린 곳
+          // this;
+          // e.preventDefault(); // 이벤트 기본동작 막아줌
+          // e.stopPropagation(); // 내 상위요소로 이벤트 버블링 막아줌
+          if (e.target == document.querySelector('.black-bg')) {
+            document.querySelector('.black-bg').classList.remove('show-modal');
+          }
+        });
     </script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
