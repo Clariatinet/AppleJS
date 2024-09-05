@@ -6,27 +6,27 @@
 const button = '.tab-button';
 const content = '.tab-content';
 
-// document
-//   .querySelectorAll('.tab-button')[0]
-//   .addEventListener('click', function () {
-//     document.querySelectorAll(button)[1].classList.remove('orange');
-//     document.querySelectorAll(button)[2].classList.remove('orange');
-//     document.querySelectorAll(button)[0].classList.add('orange');
-//     document.querySelectorAll(content)[1].classList.remove('show');
-//     document.querySelectorAll(content)[2].classList.remove('show');
-//     document.querySelectorAll(content)[0].classList.add('show');
-//   });
+document
+  .querySelectorAll('.tab-button')[0]
+  .addEventListener('click', function () {
+    document.querySelectorAll(button)[1].classList.remove('orange');
+    document.querySelectorAll(button)[2].classList.remove('orange');
+    document.querySelectorAll(button)[0].classList.add('orange');
+    document.querySelectorAll(content)[1].classList.remove('show');
+    document.querySelectorAll(content)[2].classList.remove('show');
+    document.querySelectorAll(content)[0].classList.add('show');
+  });
 
-// document
-//   .querySelectorAll('.tab-button')[1]
-//   .addEventListener('click', function () {
-//     document.querySelectorAll(button)[0].classList.remove('orange');
-//     document.querySelectorAll(button)[2].classList.remove('orange');
-//     document.querySelectorAll(button)[1].classList.add('orange');
-//     document.querySelectorAll(content)[0].classList.remove('show');
-//     document.querySelectorAll(content)[2].classList.remove('show');
-//     document.querySelectorAll(content)[1].classList.add('show');
-//   });
+document
+  .querySelectorAll('.tab-button')[1]
+  .addEventListener('click', function () {
+    document.querySelectorAll(button)[0].classList.remove('orange');
+    document.querySelectorAll(button)[2].classList.remove('orange');
+    document.querySelectorAll(button)[1].classList.add('orange');
+    document.querySelectorAll(content)[0].classList.remove('show');
+    document.querySelectorAll(content)[2].classList.remove('show');
+    document.querySelectorAll(content)[1].classList.add('show');
+  });
 
 document
   .querySelectorAll('.tab-button')[2]
@@ -38,11 +38,3 @@ document
     document.querySelectorAll(content)[1].classList.remove('show');
     document.querySelectorAll(content)[2].classList.add('show');
   });
-
-document.querySelector('.list').addEventListener('click', function (e) {
-  if (e.target === document.querySelectorAll('.tab-button')[0]) {
-    탭열기(0);
-  }
-});
-
-console.log(document.querySelector('.tab-button').dataset.id);
