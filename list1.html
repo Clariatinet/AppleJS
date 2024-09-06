@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>submenu</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./detail.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div> -->
+      </div>
+    </div>
+    <div class="container">
+      <button class="btn btn-danger">더보기</button>
+    </div>
+    <div class="container my-3">
+      <button class="btn btn-danger" id="price">가격순정렬</button>
+    </div>
+    <script>
+      const products = [
+        { id: 0, price: 70000, title: 'Blossom Dress' },
+        { id: 1, price: 50000, title: 'Springfield Shirt' },
+        { id: 2, price: 60000, title: 'Black Monastery' },
+      ];
+      const row = `<div class="col-sm-4">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+          <button class="buy">구매</button>
+        </div>`;
+      products.forEach(function (a, i) {
+        document.querySelector('.row').insertAdjacentHTML('beforeend', row);
+        document.querySelectorAll('.col-sm-4 h5')[i].innerHTML =
+          products[i].title;
+        document.querySelectorAll('.col-sm-4 p')[
+          i
+        ].innerHTML = `가격: ${products[i].price}`;
+      });
+      document.querySelector('.btn').addEventListener('click', function () {
+        fetch('https://codingapple1.github.io/js/more1.json')
+          .then((res) => res.json())
+          .then(function (data) {
+            const value = `<div class="col-sm-4 date">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div>`;
+            data.forEach(function (a, i) {
+              document
+                .querySelector('.row')
+                .insertAdjacentHTML('beforeend', value);
+              document.querySelectorAll('.date h5')[i].innerHTML =
+                data[i].title;
+              document.querySelectorAll('.date p')[
+                i
+              ].innerHTML = `가격: ${data[i].price}`;
+            });
+          })
+          .catch(function () {
+            console.log('ㅂㅇ');
+          });
+      });
+      document.querySelector('#price').addEventListener('click', function () {
+        products.sort(function (a, b) {
+          return a.price - b.price;
+        });
+        document.querySelector('.row').innerHTML = '';
+        fetch('https://codingapple1.github.io/js/more1.json')
+          .then((res) => res.json())
+          .then(function (data) {
+            const value = `<div class="col-sm-4 date">
+          <img src="https://via.placeholder.com/600" class="w-100" />
+          <h5>Card title</h5>
+          <p>가격 : 70000</p>
+        </div>`;
+            data.forEach(function (a, i) {
+              document
+                .querySelector('.row')
+                .insertAdjacentHTML('beforeend', value);
+              document.querySelectorAll('.date h5')[i].innerHTML =
+                data[i].title;
+              document.querySelectorAll('.date p')[
+                i
+              ].innerHTML = `가격: ${data[i].price}`;
+            });
+          })
+          .catch(function () {
+            console.log('ㅂㅇ');
+          });
+      });
+
+      const arr = [1, 2, 3];
+      const newArr = JSON.stringify(arr);
+      localStorage.setItem('num', newArr);
+      const unArr = localStorage.getItem('num');
+      console.log(JSON.parse(unArr));
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

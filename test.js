@@ -1,6 +1,11 @@
-function plus(num, count) {
-  value = num + count;
-  console.log(value);
+const 출석부 = ['흥민', '영희', '철수', '재석'];
+
+function find(name) {
+  for (let i = 0; i < 출석부.length; i++) {
+    if (name === 출석부[i]) {
+      console.log('ㅇㅇ');
+    }
+  }
 }
 
-plus(1, 2);
+find('철수');
